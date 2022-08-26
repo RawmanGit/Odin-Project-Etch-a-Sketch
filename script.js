@@ -1,3 +1,6 @@
+let color = "black";
+let click = true;
+
 function populateBoard(size){
 let board = document.querySelector('.board');
 let squares = board.querySelectorAll('div');
@@ -7,9 +10,10 @@ board.style.gridTemplateRows = `repeat(${size}, 1fr)` ;
 
 let amount = size * size;
 for(let i = 0; i < amount; i++){
-let square = document.createElement("div");
-square.style.backgroundColor = "#eee";
-board.insertAdjacentElement("beforeend", square);
+  let square = document.createElement("div");
+  square.addEventListener("mouseover", coloringBoard);
+  square.style.backgroundColor = "white";
+  board.insertAdjacentElement("beforeend", square);
   }
 }
 
@@ -22,3 +26,27 @@ function changeSize(input){
     console.log("Too many squares");
   }
 }
+
+function coloringBoard(){
+    if(click){
+      if (color === "random"){
+        this.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+      } else{
+        this.style.backgroundColor = color;
+      }
+    }
+}
+
+function changeColor(choice){
+  color = choice; 
+}
+
+function resetBoard(){
+  let board = document.querySelector('.board');
+  let squares = board.querySelectorAll("div");
+  squares.forEach((div) => div.style.backgroundColor = 'white');
+}
+
+document.querySelector('body').addEventListener('click', () => {
+  click = !click;
+})
