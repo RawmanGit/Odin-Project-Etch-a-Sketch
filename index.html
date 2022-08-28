@@ -17,9 +17,9 @@
     <div class="content">
       <div class="board"></div>
       <div class="buttons">
-        <button onclick="changeColor('black')">Black</button>
-        <button onclick="changeColor('white')">Eraser</button>
-        <button onclick="changeColor('random')">Random</button>
+        <button onclick="changeColor('black')" class="blackButton">Black</button>
+        <button onclick="changeColor('white')" class="erase">Eraser</button>
+        <button onclick="changeColor('random')" class="random">Random</button>
         <button onclick="resetBoard()">Reset</button>
       </div>
       <div>
@@ -31,6 +31,15 @@
       </div>
     </div>
   </div>
+  <footer class="footer">
+    <p>
+      Copyright ©
+      <script>
+        document.write(new Date().getFullYear())
+      </script>
+      Rawman
+    </p>
+  </footer>
 </body>
 <script src="script.js"></script>
 
